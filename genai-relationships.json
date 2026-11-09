@@ -1,0 +1,413 @@
+{
+  "source_files": {
+    "research_report_path": "research-report.md",
+    "research_report_sha": "8a39c89b10fd0c28d09c780931a0d0477526f1b0"
+  },
+  "methodology": {
+    "explicit": "Explicit counts are case-insensitive regex matches of each term/abbreviation in research-report.md (with word boundaries where appropriate).",
+    "implicit": "Implicit counts are evidence-based at sentence level: a sentence counts only if it clearly describes the concept using term-specific patterns (generic words like workflow/context/assistant/review/API are not counted). Sentences that already contain an explicit mention for that same term are excluded. Duplicate sentences per term are counted once.",
+    "notes": "Implicit rules are conservative and may undercount concepts that are present but not clearly described in a sentence without the term itself."
+  },
+  "nodes": [
+    {
+      "id": "Large Language Model (LLM)",
+      "type": "term",
+      "explicit": 0,
+      "implicit": 0,
+      "total": 0
+    },
+    {
+      "id": "Prompt Engineering",
+      "type": "term",
+      "explicit": 0,
+      "implicit": 1,
+      "total": 1
+    },
+    {
+      "id": "Token",
+      "type": "term",
+      "explicit": 0,
+      "implicit": 0,
+      "total": 0
+    },
+    {
+      "id": "Context Window",
+      "type": "term",
+      "explicit": 0,
+      "implicit": 1,
+      "total": 1
+    },
+    {
+      "id": "Retrieval-Augmented Generation (RAG)",
+      "type": "term",
+      "explicit": 4,
+      "implicit": 1,
+      "total": 5
+    },
+    {
+      "id": "Embeddings",
+      "type": "term",
+      "explicit": 1,
+      "implicit": 0,
+      "total": 1
+    },
+    {
+      "id": "Vector Database",
+      "type": "term",
+      "explicit": 0,
+      "implicit": 0,
+      "total": 0
+    },
+    {
+      "id": "Hallucination",
+      "type": "term",
+      "explicit": 3,
+      "implicit": 0,
+      "total": 3
+    },
+    {
+      "id": "Fine-Tuning",
+      "type": "term",
+      "explicit": 0,
+      "implicit": 0,
+      "total": 0
+    },
+    {
+      "id": "Grounding",
+      "type": "term",
+      "explicit": 7,
+      "implicit": 0,
+      "total": 7
+    },
+    {
+      "id": "Human-in-the-Loop (HITL)",
+      "type": "term",
+      "explicit": 2,
+      "implicit": 2,
+      "total": 4
+    },
+    {
+      "id": "Model Evaluation (Evals)",
+      "type": "term",
+      "explicit": 5,
+      "implicit": 0,
+      "total": 5
+    },
+    {
+      "id": "AI Agents",
+      "type": "term",
+      "explicit": 2,
+      "implicit": 0,
+      "total": 2
+    },
+    {
+      "id": "Tool Use / Function Calling",
+      "type": "term",
+      "explicit": 0,
+      "implicit": 3,
+      "total": 3
+    },
+    {
+      "id": "Data Governance",
+      "type": "term",
+      "explicit": 2,
+      "implicit": 1,
+      "total": 3
+    },
+    {
+      "id": "Financial Services",
+      "type": "use_case"
+    },
+    {
+      "id": "Software Development",
+      "type": "use_case"
+    },
+    {
+      "id": "Healthcare",
+      "type": "use_case"
+    },
+    {
+      "id": "Education",
+      "type": "use_case"
+    },
+    {
+      "id": "Marketing",
+      "type": "use_case"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Retrieval-Augmented Generation (RAG)",
+      "target": "Embeddings",
+      "relationship": "depends_on"
+    },
+    {
+      "source": "Retrieval-Augmented Generation (RAG)",
+      "target": "Vector Database",
+      "relationship": "often_uses"
+    },
+    {
+      "source": "Token",
+      "target": "Context Window",
+      "relationship": "constrains"
+    },
+    {
+      "source": "Context Window",
+      "target": "Retrieval-Augmented Generation (RAG)",
+      "relationship": "constrains"
+    },
+    {
+      "source": "Grounding",
+      "target": "Hallucination",
+      "relationship": "mitigates"
+    },
+    {
+      "source": "Human-in-the-Loop (HITL)",
+      "target": "Hallucination",
+      "relationship": "mitigates"
+    },
+    {
+      "source": "Model Evaluation (Evals)",
+      "target": "Hallucination",
+      "relationship": "detects"
+    },
+    {
+      "source": "AI Agents",
+      "target": "Tool Use / Function Calling",
+      "relationship": "uses"
+    },
+    {
+      "source": "Data Governance",
+      "target": "Tool Use / Function Calling",
+      "relationship": "constrains"
+    },
+    {
+      "source": "Prompt Engineering",
+      "target": "Software Development",
+      "relationship": "applied_in",
+      "explicit": 0,
+      "implicit": 1,
+      "total": 1
+    },
+    {
+      "source": "Context Window",
+      "target": "Software Development",
+      "relationship": "applied_in",
+      "explicit": 0,
+      "implicit": 1,
+      "total": 1
+    },
+    {
+      "source": "Retrieval-Augmented Generation (RAG)",
+      "target": "Financial Services",
+      "relationship": "applied_in",
+      "explicit": 3,
+      "implicit": 1,
+      "total": 4
+    },
+    {
+      "source": "Retrieval-Augmented Generation (RAG)",
+      "target": "Marketing",
+      "relationship": "applied_in",
+      "explicit": 1,
+      "implicit": 0,
+      "total": 1
+    },
+    {
+      "source": "Embeddings",
+      "target": "Financial Services",
+      "relationship": "applied_in",
+      "explicit": 1,
+      "implicit": 0,
+      "total": 1
+    },
+    {
+      "source": "Hallucination",
+      "target": "Financial Services",
+      "relationship": "applied_in",
+      "explicit": 1,
+      "implicit": 0,
+      "total": 1
+    },
+    {
+      "source": "Hallucination",
+      "target": "Healthcare",
+      "relationship": "applied_in",
+      "explicit": 1,
+      "implicit": 0,
+      "total": 1
+    },
+    {
+      "source": "Hallucination",
+      "target": "Marketing",
+      "relationship": "applied_in",
+      "explicit": 1,
+      "implicit": 0,
+      "total": 1
+    },
+    {
+      "source": "Grounding",
+      "target": "Financial Services",
+      "relationship": "applied_in",
+      "explicit": 3,
+      "implicit": 0,
+      "total": 3
+    },
+    {
+      "source": "Grounding",
+      "target": "Marketing",
+      "relationship": "applied_in",
+      "explicit": 1,
+      "implicit": 0,
+      "total": 1
+    },
+    {
+      "source": "Human-in-the-Loop (HITL)",
+      "target": "Financial Services",
+      "relationship": "applied_in",
+      "explicit": 1,
+      "implicit": 1,
+      "total": 2
+    },
+    {
+      "source": "Human-in-the-Loop (HITL)",
+      "target": "Healthcare",
+      "relationship": "applied_in",
+      "explicit": 0,
+      "implicit": 1,
+      "total": 1
+    },
+    {
+      "source": "Human-in-the-Loop (HITL)",
+      "target": "Marketing",
+      "relationship": "applied_in",
+      "explicit": 1,
+      "implicit": 0,
+      "total": 1
+    },
+    {
+      "source": "Model Evaluation (Evals)",
+      "target": "Financial Services",
+      "relationship": "applied_in",
+      "explicit": 2,
+      "implicit": 0,
+      "total": 2
+    },
+    {
+      "source": "Model Evaluation (Evals)",
+      "target": "Healthcare",
+      "relationship": "applied_in",
+      "explicit": 1,
+      "implicit": 0,
+      "total": 1
+    },
+    {
+      "source": "Model Evaluation (Evals)",
+      "target": "Education",
+      "relationship": "applied_in",
+      "explicit": 1,
+      "implicit": 0,
+      "total": 1
+    },
+    {
+      "source": "Model Evaluation (Evals)",
+      "target": "Marketing",
+      "relationship": "applied_in",
+      "explicit": 1,
+      "implicit": 0,
+      "total": 1
+    },
+    {
+      "source": "AI Agents",
+      "target": "Software Development",
+      "relationship": "applied_in",
+      "explicit": 2,
+      "implicit": 0,
+      "total": 2
+    },
+    {
+      "source": "Tool Use / Function Calling",
+      "target": "Software Development",
+      "relationship": "applied_in",
+      "explicit": 0,
+      "implicit": 1,
+      "total": 1
+    },
+    {
+      "source": "Tool Use / Function Calling",
+      "target": "Healthcare",
+      "relationship": "applied_in",
+      "explicit": 0,
+      "implicit": 1,
+      "total": 1
+    },
+    {
+      "source": "Tool Use / Function Calling",
+      "target": "Marketing",
+      "relationship": "applied_in",
+      "explicit": 0,
+      "implicit": 1,
+      "total": 1
+    },
+    {
+      "source": "Data Governance",
+      "target": "Financial Services",
+      "relationship": "applied_in",
+      "explicit": 1,
+      "implicit": 1,
+      "total": 2
+    },
+    {
+      "source": "Data Governance",
+      "target": "Marketing",
+      "relationship": "applied_in",
+      "explicit": 1,
+      "implicit": 0,
+      "total": 1
+    }
+  ],
+  "implicit_evidence": {
+    "Retrieval-Augmented Generation (RAG)": [
+      {
+        "section": "Financial Services",
+        "sentence": "A representative pattern is an advisor-facing chatbot that answers questions by retrieving and summarizing approved internal research, policy documents, and product materials."
+      }
+    ],
+    "Prompt Engineering": [
+      {
+        "section": "Software Development",
+        "sentence": "- **Data governance (code and secrets):** Prompts may contain proprietary code or secrets; policies and tooling must reduce leakage risk."
+      }
+    ],
+    "Human-in-the-Loop (HITL)": [
+      {
+        "section": "Financial Services",
+        "sentence": "These workflows can reduce the time to find relevant documents and help staff prepare drafts faster, but they do not remove the need for human judgment in regulated communications and suitability-related advice."
+      },
+      {
+        "section": "Healthcare",
+        "sentence": "This is typically positioned as documentation support: clinicians remain responsible for verifying and signing."
+      }
+    ],
+    "Data Governance": [
+      {
+        "section": "Financial Services",
+        "sentence": "- **Security and data separation:** Sensitive financial data requires strict access controls, audit logging, and clear policies on what can be sent to external models."
+      }
+    ],
+    "Tool Use / Function Calling": [
+      {
+        "section": "Software Development",
+        "sentence": "How well this improves productivity depends on input context quality, integration with toolchains (tests/linters), and robust review processes."
+      },
+      {
+        "section": "Healthcare",
+        "sentence": "- **Integration:** Connecting with EHR systems and aligning output formats to clinical workflows."
+      },
+      {
+        "section": "Marketing",
+        "sentence": "Many enterprises integrate GenAI into CRM and marketing automation so content can be generated in-context and aligned with customer data and brand guidelines."
+      }
+    ]
+  }
+}
